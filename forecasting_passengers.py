@@ -107,7 +107,7 @@ p = d = q = range(0, 2)
 pdq = list(itertools.product(p, d, q))
 seasonal_pdq = [(x[0], x[1], x[2], 12) for x in list(itertools.product(p, d, q))]
 
-# Optimized for best aic
+# for best aic
 def sarima_optimizer_aic(train, pdq, seasonal_pdq):
     best_aic, best_order, best_seasonal_order = float("inf"), None, None
     for param in pdq:
@@ -147,6 +147,7 @@ def plot_co2(train, test, y_pred, title):
 plot_co2(train, test, y_pred_sarima_model_aic, "SARIMA")
 
 
+# for best mae
 def sarima_optimizer_mae(train, pdq, seasonal_pdq):
     best_mae, best_order, best_seasonal_order = float("inf"), None, None
 
